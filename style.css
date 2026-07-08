@@ -2,137 +2,257 @@ html,body{
 
 margin:0;
 padding:0;
-overflow:hidden;
 height:100%;
+overflow:hidden;
 background:black;
+
 font-family:Arial,sans-serif;
 
 }
 
-.background{
+#scene{
+
+position:relative;
+
+width:100vw;
+
+height:100vh;
+
+overflow:hidden;
+
+}
+
+#background{
 
 position:absolute;
-width:100%;
-height:100%;
-background:url("background.png");
+
+inset:0;
+
+background:url("assets/background.png");
+
 background-size:cover;
+
 background-position:center;
-z-index:1;
+
+animation:zoom 30s ease-in-out infinite alternate;
+
+transform-origin:center;
 
 }
 
-.smoke{
+@keyframes zoom{
+
+from{
+
+transform:scale(1);
+
+}
+
+to{
+
+transform:scale(1.03);
+
+}
+
+}
+
+#darkOverlay{
 
 position:absolute;
-width:200%;
-height:200%;
-left:-50%;
-top:-50%;
-background:radial-gradient(circle,
-rgba(255,255,255,.08),
+
+inset:0;
+
+background:rgba(0,0,0,.25);
+
+}
+
+#lightning{
+
+position:absolute;
+
+inset:0;
+
+background:white;
+
+opacity:0;
+
+mix-blend-mode:screen;
+
+}
+
+#smoke1{
+
+position:absolute;
+
+width:180%;
+
+height:180%;
+
+left:-40%;
+
+top:-20%;
+
+background:
+radial-gradient(circle,
+rgba(255,255,255,.06),
 transparent 70%);
-filter:blur(80px);
-animation:smokeMove 35s linear infinite;
-z-index:2;
+
+filter:blur(100px);
+
+animation:smoke 55s linear infinite;
 
 }
 
-.smoke2{
+#smoke2{
 
-animation-duration:50s;
-opacity:.5;
+position:absolute;
+
+width:180%;
+
+height:180%;
+
+left:-30%;
+
+top:-30%;
+
+background:
+radial-gradient(circle,
+rgba(255,40,40,.05),
+transparent 75%);
+
+filter:blur(120px);
+
+animation:smoke2 80s linear infinite;
 
 }
 
-@keyframes smokeMove{
+@keyframes smoke{
 
-0%{
+from{
 
 transform:translateX(0);
 
 }
 
-100%{
+to{
 
-transform:translateX(200px);
+transform:translateX(300px);
+
+}
+
+}
+
+@keyframes smoke2{
+
+from{
+
+transform:translateX(0);
+
+}
+
+to{
+
+transform:translateX(-250px);
 
 }
 
 }
 
-.lightning{
+#embers{
 
 position:absolute;
-width:100%;
-height:100%;
-background:white;
-opacity:0;
-z-index:3;
+
+inset:0;
+
 pointer-events:none;
 
 }
 
-.flash{
-
-animation:flash .4s;
-
-}
-
-@keyframes flash{
-
-0%{opacity:0;}
-
-10%{opacity:.6;}
-
-20%{opacity:0;}
-
-35%{opacity:.4;}
-
-100%{opacity:0;}
-
-}
-
-.countdown{
+.spark{
 
 position:absolute;
 
-left:50%;
+width:4px;
+
+height:4px;
+
+border-radius:50%;
+
+background:#ff3b3b;
+
+box-shadow:0 0 10px red;
+
+animation:rise linear forwards;
+
+}
+
+@keyframes rise{
+
+from{
+
+transform:translateY(0);
+
+opacity:1;
+
+}
+
+to{
+
+transform:translateY(-300px);
+
+opacity:0;
+
+}
+
+}
+
+#filmgrain{
+
+position:absolute;
+
+inset:0;
+
+opacity:.04;
+
+background-image:url("https://grainy-gradients.vercel.app/noise.svg");
+
+mix-blend-mode:overlay;
+
+}
+
+#countdown{
+
+position:absolute;
 
 bottom:18%;
+
+left:50%;
 
 transform:translateX(-50%);
 
 display:flex;
 
-gap:40px;
+gap:55px;
 
-z-index:5;
+color:white;
 
 }
 
-.time{
+.box{
 
 text-align:center;
 
-color:white;
-
 }
 
-.time span{
-
-display:block;
+.box div{
 
 font-size:72px;
 
-font-weight:bold;
-
-color:white;
+font-weight:900;
 
 text-shadow:
 
-0 0 10px red,
-
-0 0 25px red,
+0 0 15px red,
 
 0 0 40px red;
 
@@ -140,7 +260,7 @@ animation:pulse 2s infinite;
 
 }
 
-.time label{
+.box span{
 
 font-size:18px;
 
@@ -150,7 +270,7 @@ letter-spacing:2px;
 
 @keyframes pulse{
 
-0%{
+0%,100%{
 
 opacity:.9;
 
@@ -159,12 +279,6 @@ opacity:.9;
 50%{
 
 opacity:1;
-
-}
-
-100%{
-
-opacity:.9;
 
 }
 
