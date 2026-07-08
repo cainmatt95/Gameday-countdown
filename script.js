@@ -1,26 +1,18 @@
-const kickoff = new Date("August 28, 2026 19:00:00").getTime();
+const kickoff = new Date("August 28, 2026 19:00").getTime();
 
 function updateCountdown(){
 
-const now = new Date().getTime();
+const now=Date.now();
 
-const distance = kickoff-now;
+const diff=kickoff-now;
 
-const days=Math.floor(distance/(1000*60*60*24));
+document.getElementById("days").textContent=Math.floor(diff/86400000);
 
-const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+document.getElementById("hours").textContent=Math.floor(diff%86400000/3600000);
 
-const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+document.getElementById("minutes").textContent=Math.floor(diff%3600000/60000);
 
-const seconds=Math.floor((distance%(1000*60))/1000);
-
-document.getElementById("days").innerHTML=days;
-
-document.getElementById("hours").innerHTML=hours;
-
-document.getElementById("minutes").innerHTML=minutes;
-
-document.getElementById("seconds").innerHTML=seconds;
+document.getElementById("seconds").textContent=Math.floor(diff%60000/1000);
 
 }
 
@@ -28,20 +20,50 @@ setInterval(updateCountdown,1000);
 
 updateCountdown();
 
-function lightning(){
+function flash(){
 
-document.querySelector(".lightning").classList.add("flash");
+const l=document.getElementById("lightning");
 
-setTimeout(()=>{
+l.animate([
 
-document.querySelector(".lightning").classList.remove("flash");
+{opacity:0},
 
-},500);
+{opacity:.8},
 
-const next=Math.random()*12000+8000;
+{opacity:0},
 
-setTimeout(lightning,next);
+{opacity:.4},
+
+{opacity:0}
+
+],{
+
+duration:450
+
+});
+
+setTimeout(flash,Math.random()*12000+7000);
 
 }
 
-lightning();
+flash();
+
+function ember(){
+
+const e=document.createElement("div");
+
+e.className="spark";
+
+e.style.left=Math.random()*100+"vw";
+
+e.style.bottom="-10px";
+
+e.style.animationDuration=(4+Math.random()*4)+"s";
+
+document.getElementById("embers").appendChild(e);
+
+setTimeout(()=>e.remove(),8000);
+
+}
+
+setInterval(ember,180);
