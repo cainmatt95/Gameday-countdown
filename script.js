@@ -67,3 +67,12 @@ setTimeout(()=>e.remove(),8000);
 }
 
 setInterval(ember,180);
+const fullscreenBtn = document.getElementById("fullscreenBtn");
+
+fullscreenBtn.addEventListener("click", () => {
+    if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+    } else {
+        document.exitFullscreen();
+    }
+});
