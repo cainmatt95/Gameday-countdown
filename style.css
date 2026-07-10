@@ -52,8 +52,9 @@ inset:0;
 
 background:url("assets/background.png");
 
-background-size:cover;
-
+background-size: contain;
+background-repeat: no-repeat;
+background-position: center;
 background-position:center;
 
 animation:zoom 30s ease-in-out infinite alternate;
