@@ -243,24 +243,27 @@ mix-blend-mode:overlay;
 
 }
 
-#countdown{
+#countdown {
 
-position:absolute;
+    position: absolute;
 
-bottom:20%;
+    left: 50%;
+    top: 77%;
 
-width:80%;
+    transform: translate(-50%, -50%);
 
-max-width:850px;
-left:50%;
+    display: flex;
 
-transform:translateX(-50%);
+    justify-content: center;
+    align-items: center;
 
-display:flex;
+    gap: clamp(12px, 3vw, 45px);
 
-gap:clamp(12px,4vw,55px);
-color:white;
+    width: 62%;
 
+    z-index: 20;
+
+    color: white;
 }
 
 .box{
