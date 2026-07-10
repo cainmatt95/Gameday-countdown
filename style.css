@@ -246,16 +246,18 @@ mix-blend-mode:overlay;
 
 position:absolute;
 
-bottom:18%;
+bottom:20%;
 
+width:80%;
+
+max-width:850px;
 left:50%;
 
 transform:translateX(-50%);
 
 display:flex;
 
-gap:55px;
-
+gap:clamp(12px,4vw,55px);
 color:white;
 
 }
@@ -268,7 +270,7 @@ text-align:center;
 
 .box div{
 
-font-size:72px;
+font-size:clamp(36px,7vw,82px);
 
 font-weight:900;
 
@@ -303,5 +305,37 @@ opacity:.9;
 opacity:1;
 
 }
+
+}
+@media (max-width:900px){
+
+    #countdown{
+
+        width:90%;
+
+        gap:20px;
+
+        bottom:17%;
+
+    }
+
+    .box div{
+
+        font-size:clamp(32px,8vw,60px);
+
+    }
+
+}
+@media (orientation:portrait){
+
+    #countdown{
+
+        width:95%;
+
+        gap:12px;
+
+        bottom:22%;
+
+    }
 
 }
