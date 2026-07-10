@@ -339,37 +339,3 @@ opacity:1;
     }
 
 }
-#fullscreenBtn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 9999;
-
-    padding: 12px 18px;
-
-    background: rgba(0,0,0,.6);
-    color: white;
-
-    border: 2px solid #ff3333;
-    border-radius: 8px;
-
-    cursor: pointer;
-
-    font-size: 16px;
-    font-weight: bold;
-
-    transition: all .3s ease;
-}
-
-#fullscreenBtn:hover {
-    background: #ff3333;
-    color: white;
-}
-
-:fullscreen #fullscreenBtn {
-    opacity: .4;
-}
-
-:fullscreen #fullscreenBtn:hover {
-    opacity: 1;
-}
