@@ -243,29 +243,27 @@ mix-blend-mode:overlay;
 
 }
 
-#countdown {
+#countdown{
 
-    position: absolute;
+    position:absolute;
 
-    left: 50%;
-    top: 77%;
+    left:50%;
+    top:78.5%;
 
-    transform: translate(-50%, -50%);
+    transform:translate(-50%,-50%);
 
-    display: flex;
+    width:54%;
 
-    justify-content: center;
-    align-items: center;
+    display:flex;
 
-    gap: clamp(12px, 3vw, 45px);
+    justify-content:space-evenly;
+    align-items:center;
 
-    width: 62%;
+    z-index:20;
 
-    z-index: 20;
+    color:white;
 
-    color: white;
 }
-
 .box{
 
 text-align:center;
@@ -274,33 +272,23 @@ text-align:center;
 
 .box div{
 
-font-size:clamp(36px,7vw,82px);
+    font-size:clamp(34px,4vw,72px);
 
-font-weight:900;
+    font-weight:900;
 
-text-shadow:
+    line-height:1;
 
-0 0 15px red,
-
-0 0 40px red;
-
-animation:pulse 2s infinite;
+    text-shadow:
+        0 0 10px #ff0000,
+        0 0 30px #ff0000;
 
 }
 
 .box span{
 
-font-size:18px;
+    font-size:clamp(10px,1vw,18px);
 
-letter-spacing:2px;
-
-}
-
-@keyframes pulse{
-
-0%,100%{
-
-opacity:.9;
+    letter-spacing:2px;
 
 }
 
