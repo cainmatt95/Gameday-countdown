@@ -1,4 +1,4 @@
-const kickoff = new Date("August 28, 2026 19:00").getTime();
+const kickoff = new Date("2026-08-28T19:00:00-05:00").getTime();
 
 function updateCountdown(){
 
