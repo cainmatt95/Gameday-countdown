@@ -23,7 +23,7 @@ updateCountdown();
 function flash(){
 
 const l=document.getElementById("lightning");
-const frame=document.getElementById("frameGlow");
+
 l.animate([
 
 {opacity:0},
